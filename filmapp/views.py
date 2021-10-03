@@ -4,9 +4,6 @@ from django.http import HttpResponse
 
 
 def homepage(request):
-    return HttpResponse(
-        '<body>'
-        '<h1>Blog Home</h1>'
-        '<p>Welcome</p>'
-        '</body>'
-    )
+    return render(request, 'Films.html')
+
+
