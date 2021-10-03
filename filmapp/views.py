@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from .models import Film
 
 
 def homepage(request):
-    return render(request, 'Films.html')
+    save_films = Film.objects.all()
+    return render(request, 'Films.html', {'films': save_films})
 
 

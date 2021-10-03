@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-    <h2>films list</h2>
+    <h1>films list</h1>
+    {% for film in films %}
+    <p>{{ film.title }}</p>
+    {% endfor %}
 </body>
 </html>
