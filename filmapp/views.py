@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Film
 from .forms import FilmForm
@@ -16,8 +16,21 @@ def new_film(request):
     form = FilmForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-    return render(request, 'new_film.html', {'form': form})
+    return render(request, 'film_form.html', {'form': form})
 
 
+def edit_film(request, id):
+    film = get_object_or_404(Film, pk=id)
+    form = FilmForm(request.POST or None, request.FILES or None, instance=film)
+    if form.is_valid():
+        form.save()
+        return redirect(homepage)
+    return render(request, 'film_form.html', {'form': form})
 
 
+def delete_film(request, id):
+    film = get_object_or_404(Film, pk=id)
+    if request.method == 'POST':
+        film.delete()
+        return redirect(homepage)
+    return render(request, 'confirm_delete.html', {'film': film})
