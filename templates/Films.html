@@ -13,9 +13,12 @@
     {% else %}
         <h2>films list</h2>
         {% for film in films %}
-        <p>{{ film.title }}</p>
+            <p>{{ film.title }}</p>
+            <a href='{% url "edit_film" film.id %}'>Edit</a>
+            <a href='{% url "delete_film" film.id %}'>Delete</a>
         {% endfor %}
         <h2>film count in database: {{ films|length }} </h2>
     {% endif %}
+    <a href='{% url "new_film"%}'>Add New Film</a>
 </body>
 </html>
