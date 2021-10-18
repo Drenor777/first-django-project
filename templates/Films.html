@@ -1,13 +1,6 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Films</title>
-    <link rel="stylesheet" href="{% static 'blue_style.css' %}">
-</head>
-<body>
+{% extends 'main.html'%}
+{% block tilt %} Films list {% endblock %}
+{% block site %}
     {% if user.is_authenticated %}
         welcome {{ user.username }}<br>
         <a href='{% url "logout"%}'>Logout</a>
@@ -15,7 +8,6 @@
         <a href='{% url "login"%}'>Login</a>
     {% endif %}
     <hr>
-
 
     {% if films|length == 0 %}
         <h2>film list is empty</h2>
@@ -29,5 +21,4 @@
         <h2>film count in database: {{ films|length }} </h2>
     {% endif %}
     <a href='{% url "new_film"%}'>Add New Film</a>
-</body>
-</html>
+{% endblock %}

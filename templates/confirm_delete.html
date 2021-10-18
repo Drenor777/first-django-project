@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main.html'%}
+{% block tilt %} confirm delete {% endblock %}
+{% block site %}
     <h1>{{ film }}</h1>
     <h2> do you really want to delete this film? </h2>
     <form method="post">
@@ -12,5 +8,4 @@
         {% csrf_token %}
     </form>
     <a href='{% url "homepage"%}'>Home</a>
-</body>
-</html>
+{% endblock %}

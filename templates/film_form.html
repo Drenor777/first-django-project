@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>new_film</title>
-</head>
-<body>
+{% extends 'main.html'%}
+{% block tilt %} Films form {% endblock %}
+{% block site %}
   <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form }}
     <button type="submit">add film</button>
   </form>
   <a href='{% url "homepage"%}'>Home</a>
-</body>
-</html>
+{% endblock %}
