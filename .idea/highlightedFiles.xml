@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTreeColorHighlighter">
+    <files>
+      <node color="1" path="$PROJECT_DIR$" />
+      <node color="1" path="$PROJECT_DIR$/db.sqlite3" />
+      <node color="5" path="$PROJECT_DIR$/filmapp" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/__init__.py" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/admin.py" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/apps.py" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/forms.py" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/migrations" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/models.py" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/static" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/tests.py" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/urls.py" />
+      <node color="5" path="$PROJECT_DIR$/filmapp/views.py" />
+      <node color="3" path="$PROJECT_DIR$/firstdjangoproject" />
+      <node color="3" path="$PROJECT_DIR$/firstdjangoproject/__init__.py" />
+      <node color="3" path="$PROJECT_DIR$/firstdjangoproject/asgi.py" />
+      <node color="3" path="$PROJECT_DIR$/firstdjangoproject/settings.py" />
+      <node color="3" path="$PROJECT_DIR$/firstdjangoproject/urls.py" />
+      <node color="3" path="$PROJECT_DIR$/firstdjangoproject/wsgi.py" />
+      <node color="1" path="$PROJECT_DIR$/manage.py" />
+      <node color="7" path="$PROJECT_DIR$/my_media" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/51MiFVLmxRL._AC_SY1000_.jpg" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/137794-titanic-walter-lord-1.jpg" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/137794-titanic-walter-lord-1_7KWFQyS.jpg" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/Aop2.jpg" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/movieposter.jpg" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/predator-hunting-grounds-mobile-wallpaper-1080x1920-en-us-24mar20.jpg" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/pulp-fiction-cover-i1288.jpg" />
+      <node color="7" path="$PROJECT_DIR$/my_media/posters/Terminator-0.jpg" />
+      <node color="2" path="$PROJECT_DIR$/my_static" />
+      <node color="2" path="$PROJECT_DIR$/my_static/bootstrap-utilities.css" />
+      <node color="2" path="$PROJECT_DIR$/my_static/green_style.css" />
+      <node color="6" path="$PROJECT_DIR$/templates" />
+      <node color="6" path="$PROJECT_DIR$/templates/confirm_delete.html" />
+      <node color="6" path="$PROJECT_DIR$/templates/film_form.html" />
+      <node color="6" path="$PROJECT_DIR$/templates/Films.html" />
+      <node color="6" path="$PROJECT_DIR$/templates/main.html" />
+      <node color="6" path="$PROJECT_DIR$/templates/registration" />
+    </files>
+    <colors>
+      <color id="1" value="#4f060d" name="Color 1" enabled="true" />
+      <color id="2" value="#44220e" name="Color 2" enabled="true" />
+      <color id="3" value="#3f371b" name="Color 3" enabled="true" />
+      <color id="4" value="#162c16" name="Color 4" enabled="true" />
+      <color id="5" value="#0f2f47" name="Color 5" enabled="true" />
+      <color id="6" value="#171a34" name="Color 6" enabled="true" />
+      <color id="7" value="#311333" name="Color 7" enabled="true" />
+      <color id="8" value="#1e1e1e" name="Color 8" enabled="true" />
+    </colors>
+    <option name="marksForCollapsedHighlights" value="Dots" />
+  </component>
+</project>
