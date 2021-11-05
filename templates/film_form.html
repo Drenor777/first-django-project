@@ -1,9 +1,10 @@
 {% extends 'main.html'%}
+{% load bootstrap %}
 {% block tilt %} Films form {% endblock %}
 {% block site %}
   <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form }}
+      {{ form|bootstrap }}
     <button type="submit">add film</button>
   </form>
   <a href='{% url "homepage"%}'>Home</a>
