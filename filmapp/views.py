@@ -18,7 +18,7 @@ def new_film(request):
     form = FilmForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-    return render(request, 'film_form.html', {'form': form})
+    return render(request, 'film_form.html', {'form': form, 'new': True})
 
 
 @login_required
@@ -28,7 +28,7 @@ def edit_film(request, id):
     if form.is_valid():
         form.save()
         return redirect(homepage)
-    return render(request, 'film_form.html', {'form': form})
+    return render(request, 'film_form.html', {'form': form, 'new': False})
 
 
 @login_required

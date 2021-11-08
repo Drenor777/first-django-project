@@ -2,10 +2,20 @@
 {% load bootstrap %}
 {% block tilt %} Films form {% endblock %}
 {% block site %}
-  <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form|bootstrap }}
-    <button type="submit">add film</button>
-  </form>
-  <a href='{% url "homepage"%}'>Home</a>
+    <div class="card" style="width: 26rem;">
+      <div class="card-body">
+        <h5 class="card-title">Film Form</h5>
+            <i class="fas fa-user-tie"></i>
+              <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form|bootstrap }}
+                  {% if new %}
+                    <button type="submit">add film</button>
+                  {% else %}
+                    <button type="submit">edit film</button>
+                  {% endif %}
+              </form>
+              <a href='{% url "homepage"%}'>Home</a>
+      </div>
+    </div>
 {% endblock %}

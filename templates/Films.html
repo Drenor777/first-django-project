@@ -1,14 +1,7 @@
 {% extends 'main.html'%}
 {% block tilt %} Films list {% endblock %}
 {% block site %}
-    {% if user.is_authenticated %}
-        welcome {{ user.username }}<br>
-        <a href='{% url "logout"%}'>Logout</a>
-    {% else %}
-        <a href='{% url "login"%}'>Login</a>
-    {% endif %}
-    <hr>
-
+    <br>
     {% if films|length == 0 %}
         <h2>film list is empty</h2>
     {% else %}
@@ -16,6 +9,7 @@
         {% for film in films %}
             <div class="card" style="width: 26rem;">
               <div class="card-body">
+                <img style="width:170px; float: left" src="/media/{{film.poster}}">
                 <div class="row">
                     <div class="col-9">
                         <h5 class="card-title">{{ film.title }}</h5>
@@ -26,6 +20,7 @@
                         <a href='{% url "edit_film" film.id %}'><i class="fas fa-2x fa-edit"></i></a>
                         <a href='{% url "delete_film" film.id %}'><i class="fas fa-2x fa-trash-alt"></i></a>
                     </div>
+
                 </div>
               </div>
             </div>
@@ -33,5 +28,7 @@
         {% endfor %}
         <h2>film count in database: {{ films|length }} </h2>
     {% endif %}
-    <a href='{% url "new_film"%}'>Add New Film</a>
+    <a href='{% url "new_film"%}'>
+        <button type="button" class="btn btn-outline-dark me-2"><i class="fas fa-plus-square"></i> Add New Film </button>
+    </a>
 {% endblock %}
