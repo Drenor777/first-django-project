@@ -1,8 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Film
-from .forms import FilmForm
+from .models import Film, ExtraInfo, Opinion
+from .forms import FilmForm, ExtraInfoForm
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from django.contrib.auth.models import User
+from .serializers import UserSerializer
+
+class UserView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 def homepage(request):
@@ -15,20 +22,38 @@ def homepage(request):
 
 @login_required
 def new_film(request):
-    form = FilmForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-    return render(request, 'film_form.html', {'form': form, 'new': True})
+    film_form = FilmForm(request.POST or None, request.FILES or None)
+    extra_form = ExtraInfoForm(request.POST or None)
+    if all([film_form.is_valid(), extra_form.is_valid()]):
+        film = film_form.save(commit=False)
+        extra = extra_form.save()
+        film.extra = extra
+        film.save()
+        return redirect(homepage)
+
+    return render(request, 'film_form.html', {'film_form': film_form, 'extra_form': extra_form, 'new': True})
 
 
 @login_required
 def edit_film(request, id):
     film = get_object_or_404(Film, pk=id)
-    form = FilmForm(request.POST or None, request.FILES or None, instance=film)
-    if form.is_valid():
-        form.save()
+    rating = Opinion.objects.filter(film_title=film)
+    try:
+        extra = ExtraInfo.objects.get(film=film.id)
+    except ExtraInfo.DoesNotExist:
+        extra = None
+    film_form = FilmForm(request.POST or None, request.FILES or None, instance=film)
+    extra_form = ExtraInfoForm(request.POST or None, instance=extra)
+
+    if all([film_form.is_valid(), extra_form.is_valid()]):
+        film = film_form.save(commit=False)
+        extra = extra_form.save()
+        film.extra = extra
+        film.save()
         return redirect(homepage)
-    return render(request, 'film_form.html', {'form': form, 'new': False})
+
+    return render(request, 'film_form.html',
+                  {'film_form': film_form, 'extra_form': extra_form, 'new': False, 'rating': rating})
 
 
 @login_required

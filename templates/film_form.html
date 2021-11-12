@@ -8,14 +8,19 @@
             <i class="fas fa-user-tie"></i>
               <form method="post" enctype="multipart/form-data">
                   {% csrf_token %}
-                  {{ form|bootstrap }}
+                  {{ film_form|bootstrap }}
+                  {{ extra_form|bootstrap }}
                   {% if new %}
                     <button type="submit">add film</button>
                   {% else %}
                     <button type="submit">edit film</button>
                   {% endif %}
               </form>
-              <a href='{% url "homepage"%}'>Home</a>
+          {% for rate in rating %}
+            <h4> fan rating: {{rate.personal_rating}} </h4>
+            <p> {{rate.personal_review}} </p>
+          {% endfor %}
+          <a href='{% url "homepage"%}'>Home</a>
       </div>
     </div>
 {% endblock %}
